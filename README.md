@@ -23,7 +23,7 @@ Example: `python3 ezmanga.py --chaptertodownload 216`
 
 --------------------------------------------------------------------------
 
---saveto: Set the location to download manga to ("This defaults to your Downloads directory")
+--saveto: Set the location to download manga to (This defaults to your Downloads directory)
 
 Example (Linux/OSX) : `python3 ezmanga.py --saveto /home/plextora/manga/`
 
