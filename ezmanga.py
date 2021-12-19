@@ -27,13 +27,20 @@ if operatingSystem == "Darwin": # Darwin = OSX
 
 @click.command()
 @click.option("--manga", help="Input name of the manga you want to download.")
-@click.option("--chapterlist", help="Returns the amount of chapters available for the manga you want to download.")
-@click.option("--chaptertodownload", help="The chapter number of the manga you want to download")
+@click.option("--chapterlist", help="Returns the amount of chapters available for the manga you want to download.", default=False)
+@click.option("--chaptertodownload", help="The chapter number of the manga you want to download", type=int)
 @click.option("--saveto", help="Input location to download manga to.", default=defaultSave)
 
-def ezManga():
-    pass
+def ezManga(manga, chapterlist, chaptertodownload, saveto):
+    mangaDL = mangareader.Manga(manga)
 
+    if chapterlist == True:
+        print(mangaDL.get_chapter_list())
+    
+    mangaDL.download_chapter(chaptertodownload, saveto)
+
+
+CLI.add_command(ezManga())
 
 if __name__ == '__main__':
     CLI()
